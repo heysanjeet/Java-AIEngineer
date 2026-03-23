@@ -16,6 +16,11 @@ public class ChatController {
         this.chatClient = chatClientBuilder.build();
     }
 
+    /**
+     * Endpoint to handle chat messages. It takes a message as a query parameter and returns the response from the chat client.
+     * @param message
+     * @return
+     */
     @GetMapping("/chat")
     public String chat(@RequestParam String message) {
         return chatClient.prompt(message).call().content();
